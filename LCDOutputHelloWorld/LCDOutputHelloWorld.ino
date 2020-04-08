@@ -1,33 +1,38 @@
-/*********
-  Rui Santos
-  Complete project details at https://randomnerdtutorials.com  
-*********/
-
 #include <LiquidCrystal_I2C.h>
 
-// set the LCD number of columns and rows
 int lcdColumns = 16;
 int lcdRows = 1;
 
-// set LCD address, number of columns and rows
-// if you don't know your display address, run an I2C scanner sketch
 LiquidCrystal_I2C lcd(0x27, lcdColumns, lcdRows);  
 
-void setup(){
-  // initialize LCD
-  lcd.init();
-  // turn on LCD backlight                      
+byte dicc[8] = {
+  0b00100,
+  0b01010,
+  0b01010,
+  0b01010,
+  0b01010,
+  0b01010,
+  0b10101,
+  0b01010
+};
+
+void setup() {
+  lcd.init();                     
   lcd.backlight();
+  lcd.createChar(1, dicc);
 }
 
-void loop(){
-  // set cursor to first column, first row
+void loop() {
   lcd.setCursor(0, 0);
-  // print message
-  lcd.print("Hello, World!");
-  delay(3000);
-  // clears the display to print new message
-  lcd.clear();
-  delay(3000);
-  lcd.clear(); 
+  lcd.write(1);
+  lcd.print(' ');
+  lcd.write(1);
+  lcd.print(' ');
+  lcd.write(1);
+  lcd.print(' ');
+  lcd.write(1);
+  lcd.print(' ');
+  lcd.write(1);
+  lcd.print(' ');
+  lcd.write(1);
 }

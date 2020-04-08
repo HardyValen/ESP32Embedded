@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+<title>BMP180 Weather Station</title>
+<script>
+function GetReadings(){
+    nocache = '&nocache';
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+    if (this.status == 200) {
+        if (this.responseXML != null){
+            var num_an = this.responseXML.getElementsByTagName('read').length;
+            for (var i = 0; i < num_an; i++){document.getElementsByClassName('read')[i].innerHTML = this.responseXML.getElementsByTagName('read')[i].childNodes[0].nodeValue;}
+        }
+    }
+    }
+    request.open('GET', '?update_readings' + nocache, true);
+    request.send(null);
+    setTimeout('GetReadings()', 1000);
+}
+
+document.addEventListener('DOMContentLoaded', function(){GetReadings()}, false);
+</script>
+</head>
+
+<body>
+    <h1>BMP180 Weather Station</h1>
+    <h2>Real-Time Update</h2>
+    Temperature Today: 
+    <span class='read'></span>);      
+    &#8451<br>
+    Pressure Today: 
+    <span class='read'></span>
+    Pa<br>
+    Altitude Today: 
+    <span class='read'></span>
+    Meters<br>
+</body>
+</html>
