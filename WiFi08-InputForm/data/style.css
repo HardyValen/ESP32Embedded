@@ -1,0 +1,461 @@
+/* MIXIN FOR CUSTOM RANGE OF FLUID SIZES
+ *  -- Menerima masukan batas bawah font size 'floor' dan batas atas font size 'ceiling', satuan rem!
+ *  -- Mengeluarkan kode css yang membuat transisi antara floor dan ceiling 'fluid'     
+ *
+ *  -- TABLE OF CONTENT
+ *  -- 1. Width
+ *  -- 2. Padding
+ *  -- 3. Margin
+ *  -- 4. Font-Size
+ *  -- 5. Letter-Spacing  
+ *  -- 6. Responsive Border
+ *  -- 7. Responsive Padding Inline Start
+ */
+/* -- 01. Mixin untuk fluid width -- */
+/* -- 02. Mixin untuk fluid padding -- */
+/* -- 03. Mixin untuk fluid margin -- */
+/* -- 05. Mixin untuk fluid font size -- */
+/* -- 06. Mixin untuk fluid letter spacing -- */
+/* -- 07. Mixin untuk Responsive Border (Satu Sisi) -- */
+/* -- 08. Mixin untuk Padding-Inline-Start -- */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
+.button-primary {
+  background-color: #0252B3;
+  border: 2px solid #0252B3;
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button-primary {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media screen and (min-width: 320px) {
+  .button-primary {
+    padding-left: calc(0.5rem + 1 * ((100vw - 32rem) / (96 - 32)));
+    padding-right: calc(0.5rem + 1 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .button-primary {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.button-primary {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 320px) {
+  .button-primary {
+    padding-bottom: calc(0.5rem + 0.25 * ((100vw - 32rem) / (96 - 32)));
+    padding-top: calc(0.5rem + 0.25 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .button-primary {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+.button-primary {
+  font-size: 0.625rem;
+}
+
+@media screen and (min-width: 320px) {
+  .button-primary {
+    font-size: calc(0.625rem + 0.375 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .button-primary {
+    font-size: 1rem;
+  }
+}
+
+.button-primary:hover {
+  background-color: #0368E3;
+  color: white;
+  border-color: #0368E3;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.button-primary:active {
+  background-color: #FFC517;
+  color: white;
+  border-color: #FFC517;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+}
+
+main {
+  display: block;
+  height: 100%;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+.index-form {
+  background-color: #f4f4f4;
+  min-height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 960px) {
+  .index-form {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 960px) and (min-width: 320px) {
+  .index-form {
+    padding: calc(1rem + 0.5 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) and (min-width: 960px) {
+  .index-form {
+    padding: 1.5rem;
+  }
+}
+
+.index-form .form-container {
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.05);
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.index-form .form-container {
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container {
+    padding-left: calc(0rem + 3 * ((100vw - 32rem) / (96 - 32)));
+    padding-right: calc(0rem + 3 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.index-form .form-container {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container {
+    padding-bottom: calc(1.2rem + 0.8 * ((100vw - 32rem) / (96 - 32)));
+    padding-top: calc(1.2rem + 0.8 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .index-form .form-container {
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+.index-form .form-container .form-title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.index-form .form-container .form-title h1 {
+  color: #545454;
+  font-size: 3.75vw;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 960px) {
+  .index-form .form-container .form-title h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 960px) and (min-width: 320px) {
+  .index-form .form-container .form-title h1 {
+    font-size: calc(1.6rem + 1.4 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (max-width: 960px) and (min-width: 960px) {
+  .index-form .form-container .form-title h1 {
+    font-size: 3rem;
+  }
+}
+
+.index-form .form-container .form-title p {
+  color: #686868;
+  font-size: 0.833vw;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 960px) {
+  .index-form .form-container .form-title p {
+    font-size: 0.5rem;
+  }
+}
+
+.index-form .form-container .form-title p a {
+  font-weight: 700;
+}
+
+.index-form .form-container .form-title p a:hover {
+  text-decoration: underline;
+}
+
+.index-form .form-container .form-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.index-form .form-container .form-body form {
+  width: 80%;
+}
+
+@media screen and (max-width: 960px) {
+  .index-form .form-container .form-body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.index-form .form-container .form-body {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container .form-body {
+    padding-bottom: calc(2rem + 1 * ((100vw - 32rem) / (96 - 32)));
+    padding-top: calc(2rem + 1 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container .form-body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.index-form .form-container .form-body img {
+  width: 10rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container .form-body img {
+    width: calc(10rem + 10 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container .form-body img {
+    width: 20rem;
+  }
+}
+
+.index-form .form-container .form-body .form-input {
+  display: block;
+  position: relative;
+}
+
+.index-form .form-container .form-body .form-input {
+  margin: 2rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container .form-body .form-input {
+    margin: calc(2rem + 1 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container .form-body .form-input {
+    margin: 3rem;
+  }
+}
+
+.index-form .form-container .form-body .form-input .text-label {
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  z-index: 1;
+  color: #4F4F4F;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+  margin-bottom: 0 !important;
+}
+
+.index-form .form-container .form-body .form-input .text-label {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container .form-body .form-input .text-label {
+    font-size: calc(0.75rem + 0.25 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container .form-body .form-input .text-label {
+    font-size: 1rem;
+  }
+}
+
+.index-form .form-container .form-body .form-input input[type=text], .index-form .form-container .form-body .form-input input[type=email] {
+  width: 100%;
+  max-width: 36rem;
+}
+
+.index-form .form-container .form-body .form-input input[type=text], .index-form .form-container .form-body .form-input input[type=email], .index-form .form-container .form-body .form-input input[type=number], .index-form .form-container .form-body .form-input .txta {
+  display: block;
+  position: relative;
+  z-index: 2;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #333333;
+  background-color: transparent;
+  margin-bottom: 0;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
+.index-form .form-container .form-body .form-input input[type=text], .index-form .form-container .form-body .form-input input[type=email], .index-form .form-container .form-body .form-input input[type=number], .index-form .form-container .form-body .form-input .txta {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 320px) {
+  .index-form .form-container .form-body .form-input input[type=text], .index-form .form-container .form-body .form-input input[type=email], .index-form .form-container .form-body .form-input input[type=number], .index-form .form-container .form-body .form-input .txta {
+    font-size: calc(0.75rem + 0.25 * ((100vw - 32rem) / (96 - 32)));
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .index-form .form-container .form-body .form-input input[type=text], .index-form .form-container .form-body .form-input input[type=email], .index-form .form-container .form-body .form-input input[type=number], .index-form .form-container .form-body .form-input .txta {
+    font-size: 1rem;
+  }
+}
+
+.index-form .form-container .form-body .form-input input[type=text]:focus, .index-form .form-container .form-body .form-input input[type=text]:not(:placeholder-shown), .index-form .form-container .form-body .form-input input[type=email]:focus, .index-form .form-container .form-body .form-input input[type=email]:not(:placeholder-shown), .index-form .form-container .form-body .form-input input[type=number]:focus, .index-form .form-container .form-body .form-input input[type=number]:not(:placeholder-shown), .index-form .form-container .form-body .form-input .txta:focus, .index-form .form-container .form-body .form-input .txta:not(:placeholder-shown) {
+  outline: none;
+  border-bottom: 1px solid #0252B3;
+}
+
+.index-form .form-container .form-body .form-input input[type=text]:focus + .text-label, .index-form .form-container .form-body .form-input input[type=text]:not(:placeholder-shown) + .text-label, .index-form .form-container .form-body .form-input input[type=email]:focus + .text-label, .index-form .form-container .form-body .form-input input[type=email]:not(:placeholder-shown) + .text-label, .index-form .form-container .form-body .form-input input[type=number]:focus + .text-label, .index-form .form-container .form-body .form-input input[type=number]:not(:placeholder-shown) + .text-label, .index-form .form-container .form-body .form-input .txta:focus + .text-label, .index-form .form-container .form-body .form-input .txta:not(:placeholder-shown) + .text-label {
+  top: -20px;
+  color: #0252B3;
+  font-size: 10px;
+}
+
+.index-form .form-container .form-body .form-input:not(:first-child) {
+  margin-top: 2rem;
+}
+/*# sourceMappingURL=style.css.map */

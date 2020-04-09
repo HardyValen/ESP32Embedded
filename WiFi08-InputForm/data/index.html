@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section class="index-form">
+        <div class="form-container">
+            <div class="form-title">
+                <h1>ESP32 HTML Input Form</h1>
+                <p>Powered by <a href="https://ifttt.com" target="_blank">IFTTT</a> and <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank">Google Sheets</a></p>
+            </div>
+            <div class="form-body">
+                <form action="/post" method="post">
+                    <div class="form-input">
+                        <input type="text" name="nama" id="nama" placeholder=' '/>
+                        <label class="text-label">Nama</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="feedback" id="feedback" placeholder=' '/>
+                        <label class="text-label">Feedback</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="number" name="rating" id="rating" min="0" max="5" step="1" placeholder=' '/>
+                        <label class="text-label">Rating</label>
+                    </div>
+                    <div class="form-input">
+                        <input class="button-primary" type="submit" value="Submit Form">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="script.js"></script>
+</html>

@@ -19,6 +19,7 @@ var chartT = new Highcharts.Chart({
   },
   credits: { enabled: false }
 });
+
 setInterval(function ( ) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -60,6 +61,7 @@ var chartP = new Highcharts.Chart({
   },
   credits: { enabled: false }
 });
+
 setInterval(function ( ) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {

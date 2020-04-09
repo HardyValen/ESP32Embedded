@@ -9,7 +9,6 @@ const char* ssid      = "TP-LINK_890E7A";
 const char* password  = "suryanaga";
 
 AsyncWebServer server(80);
-String header;
 
 String readBMP180Temperature(){
   float t = bmp.readTemperature();

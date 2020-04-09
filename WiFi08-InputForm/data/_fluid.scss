@@ -1,0 +1,429 @@
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+  }
+  
+
+/* MIXIN FOR CUSTOM RANGE OF FLUID SIZES
+ *  -- Menerima masukan batas bawah font size 'floor' dan batas atas font size 'ceiling', satuan rem!
+ *  -- Mengeluarkan kode css yang membuat transisi antara floor dan ceiling 'fluid'     
+ *
+ *  -- TABLE OF CONTENT
+ *  -- 1. Width
+ *  -- 2. Padding
+ *  -- 3. Margin
+ *  -- 4. Font-Size
+ *  -- 5. Letter-Spacing  
+ *  -- 6. Responsive Border
+ *  -- 7. Responsive Padding Inline Start
+ */
+
+
+/* -- 01. Mixin untuk fluid width -- */
+    @mixin fluidwidth($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              width: $floor;
+              @media screen and (min-width: 320px) {
+                width: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                width: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidminwidth($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              min-width: $floor;
+              @media screen and (min-width: 320px) {
+                min-width: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                min-width: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidheight($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              height: $floor;
+              @media screen and (min-width: 320px) {
+                height: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                height: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidminheight($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              min-height: $floor;
+              @media screen and (min-width: 320px) {
+                min-height: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                min-height: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmaxheight($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              max-height: $floor;
+              @media screen and (min-width: 320px) {
+                max-height: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                max-height: $ceiling;
+              }
+          }
+      }
+    }
+
+/* -- 02. Mixin untuk fluid padding -- */
+    @mixin fluidpaddingtop($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding-top: $floor;
+              @media screen and (min-width: 320px) {
+                padding-top: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding-top: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidpaddingbottom($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding-bottom: $floor;
+              @media screen and (min-width: 320px) {
+                padding-bottom: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding-bottom: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidpaddingleft($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding-left: $floor;
+              @media screen and (min-width: 320px) {
+                padding-left: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding-left: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidpaddingright($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding-right: $floor;
+              @media screen and (min-width: 320px) {
+                padding-right: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding-right: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidpaddingx($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding-left: $floor;
+              padding-right: $floor;
+              @media screen and (min-width: 320px) {
+                padding-left: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+                padding-right: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding-left: $ceiling;
+                padding-right: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidpaddingy($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding-top: $floor;
+              padding-bottom: $floor;
+              @media screen and (min-width: 320px) {
+                padding-bottom: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+                padding-top: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding-top: $ceiling;
+                padding-bottom: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidpadding($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              padding: $floor;
+              @media screen and (min-width: 320px) {
+                padding: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                padding: $ceiling;
+              }
+          }
+      }
+    }
+
+/* -- 03. Mixin untuk fluid margin -- */
+    @mixin fluidmargintop($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin-top: $floor;
+              @media screen and (min-width: 320px) {
+                margin-top: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin-top: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmarginbottom($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin-bottom: $floor;
+              @media screen and (min-width: 320px) {
+                margin-bottom: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin-bottom: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmarginleft($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin-left: $floor;
+              @media screen and (min-width: 320px) {
+                margin-left: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin-left: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmarginright($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin-right: $floor;
+              @media screen and (min-width: 320px) {
+                margin-right: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin-right: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmarginx($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin-left: $floor;
+              margin-right: $floor;
+              @media screen and (min-width: 320px) {
+                margin-left: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+                margin-right: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin-left: $ceiling;
+                margin-right: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmarginy($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin-top: $floor;
+              margin-bottom: $floor;
+              @media screen and (min-width: 320px) {
+                margin-bottom: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+                margin-top: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin-top: $ceiling;
+                margin-bottom: $ceiling;
+              }
+          }
+      }
+    }
+
+    @mixin fluidmargin($floor, $ceiling) {
+      $u1: unit($floor);
+      $u2: unit($ceiling);
+      
+      @if $u1 == $u2 {
+          & {
+              margin: $floor;
+              @media screen and (min-width: 320px) {
+                margin: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+              }
+              @media screen and (min-width: 960px) {
+                margin: $ceiling;
+              }
+          }
+      }
+    }
+
+/* -- 05. Mixin untuk fluid font size -- */
+    @mixin fluidfontsize($floor, $ceiling) {
+        $u1: unit($floor);
+        $u2: unit($ceiling);
+        
+        @if $u1 == $u2 {
+            & {
+                font-size: $floor;
+                @media screen and (min-width: 320px) {
+                  font-size: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 32rem) / (96 - 32)));
+                }
+                @media screen and (min-width: 960px) {
+                  font-size: $ceiling;
+                }
+            }
+        }
+    }
+
+/* -- 06. Mixin untuk fluid letter spacing -- */
+    @mixin fluidletterspacing($floor, $ceiling) {
+        $u1: unit($floor);
+        $u2: unit($ceiling);
+        
+        @if $u1 == $u2 {
+            & {
+                letter-spacing: $floor;
+                padding-left: $floor;
+
+                @media screen and (min-width: 320px) {
+                  letter-spacing: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 320px) / (960 - 320)));
+                  padding-left: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 320px) / (960 - 320)));
+                }
+                @media screen and (min-width: 960px) {
+                  letter-spacing: $ceiling;
+                  padding-left: $ceiling;
+                }
+            }
+        }
+    }
+
+/* -- 07. Mixin untuk Responsive Border (Satu Sisi) -- */
+@mixin responsiveborder($size, $color, $type) {
+  & {
+    @media screen and (min-width: 960px) {
+      @if $type == "left" {
+        border-left: $size solid $color;
+      } @else if $type == "right" {
+        border-right: $size solid $color;
+      }
+    }
+  }
+}
+
+/* -- 08. Mixin untuk Padding-Inline-Start -- */
+@mixin fluidpaddinginlinestart($floor, $ceiling) {
+  $u1: unit($floor);
+  $u2: unit($ceiling);
+  
+  @if $u1 == $u2 {
+      & {
+          padding-inline-start: $floor;
+
+          @media screen and (min-width: 320px) {
+            padding-inline-start: calc(#{$floor} + #{strip-unit($ceiling - $floor)} * ((100vw - 320px) / (960 - 320)));
+          }
+          @media screen and (min-width: 960px) {
+            padding-inline-start: $ceiling;
+          }
+      }
+  }
+}
